@@ -23,16 +23,27 @@
   </head>
   <body>
     <h1>Welcome to Peter's Website!</h1>
-	<h1>Home Page(ver:1)</h1>
+	<h1>Page1(ver:1)</h1>
+	<p id="result"></p>
 
-	<form action="page1.htm" method="get">
+    <script>
+        // 取得 URL 的查詢字串（例如 ?username=abc）
+        const params = new URLSearchParams(window.location.search);
+        const submitTxt = params.get("submitTxt");
+
+        // 顯示在頁面上
+        document.getElementById("result").textContent = submitTxt || "沒有輸入值";
+    </script>
+	
+	<form action="page2.htm" method="get">
         <label for="username">要傳入的文字：</label>
         <input type="text" id="submitTxt" name="submitTxt">
         <br><br>
-        <input type="submit" value="送到Page1">
+        <input type="submit" value="送到Page2">
     </form>
     <ul>
-      <li><a href="page1.htm">Go to Page1</a></li>
+	  <li><a href="index.htm">Home</a></li>
+      <li><a href="page2.htm">Go to Page2</a></li>
 
     </ul>
   </body>
